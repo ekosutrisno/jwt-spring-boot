@@ -14,13 +14,11 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @Component
 public class JwtTokenUtil implements Serializable {
-  private static final long serialVersionUID = -2550185165626007488L;
-
   public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 
   public static final Long KADALUARSA = TimeUnit.SECONDS.toSeconds(10);
 
-  private String secret = "ekosutrisno";
+  private final String secret = "ekosutrisno"; // Secret Bebas mau apapun
 
   // mengambil usernama dari JWT token
   public String getUsernameFromToken(String token) {
@@ -55,9 +53,8 @@ public class JwtTokenUtil implements Serializable {
     return doGenerateToken(claims, userDetails.getUsername());
   }
 
-  // while creating the token -
-  // 1. tentukan claims token, tanggal dibuat, kadaluarasnya kapan, username/user,
-  // dan ID
+  // Saat creating the token:
+  // 1. tentukan claims token, tanggal dibuat, kadaluarasnya kapan, username/user, dan ID
   // 2. ttd JWT dengan algoritma HS512 and secret key.
   // 3. kemudian compact jadi satu string
 

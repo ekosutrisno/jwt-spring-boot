@@ -3,14 +3,30 @@ package app.app02.model;
 import java.io.Serializable;
 
 public class JwtResponse implements Serializable {
-  private static final long serialVersionUID = -8091879091924046844L;
-  private final String jwttoken;
+  private  String username;
+  private String token;
 
-  public JwtResponse(String jwttoken) {
-    this.jwttoken = jwttoken;
+  public JwtResponse() {
+  }
+
+  public JwtResponse(String username, String token) {
+    this.username = username;
+    this.token = token;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   public String getToken() {
-    return this.jwttoken;
+    return token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
   }
 }
